@@ -6,11 +6,12 @@ M.treesitter = {
     "lua",
     "c",
     "cpp",
-    "css",
-    "javascript",
-    "typescript",
-    "markdown",
-    "markdown_inline",
+    "rust",
+    --"css",
+    --"javascript",
+    --"typescript",
+    --"markdown",
+    --"markdown_inline",
   },
   indent = {
     enable = true,
@@ -29,8 +30,12 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- rust stuff
+    "rust-analyzer",
   },
 }
+
 local function nvimtree_on_attach(bufnr)
     local api = require "nvim-tree.api"
 
