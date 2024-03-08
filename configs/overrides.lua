@@ -47,10 +47,12 @@ local function nvimtree_on_attach(bufnr)
     api.config.mappings.default_on_attach(bufnr)
 
     -- custom mappings
-    vim.keymap.set('n', '-',          api.tree.change_root_to_node,         opts('Change Directory'))
+    vim.keymap.set('n', '<Enter>',    api.tree.change_root_to_node,         opts('Change Directory'))
     vim.keymap.set('n', '<BS>',       api.tree.change_root_to_parent,       opts('Up a Directory'))
     vim.keymap.set('n', '<Left>',     api.node.navigate.parent_close,       opts('Close Directory'))
+    vim.keymap.set('n', 'h',     api.node.navigate.parent_close,       opts('Close Directory'))
     vim.keymap.set('n', '<Right>',    api.node.open.edit,                   opts('Open'))
+    vim.keymap.set('n', 'l',    api.node.open.edit,                   opts('Open'))
     vim.keymap.set('n', '?',          api.tree.toggle_help,                 opts('Help'))
 end
 -- git support in nvimtree
@@ -91,7 +93,9 @@ M.nvimtree = {
       },
     },
   },
-  require("nvterm").setup({
+}
+
+require("nvterm").setup({
   terminals = {
     shell = vim.o.shell,
     list = {},
@@ -117,6 +121,4 @@ M.nvimtree = {
     auto_insert = true,
   },
 })
-}
-
 return M
