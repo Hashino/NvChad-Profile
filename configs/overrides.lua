@@ -1,5 +1,20 @@
 local M = {}
 
+M.mason = {
+  ensure_installed = {
+    -- lua stuff
+    "lua-language-server",
+    "stylua",
+
+    -- c/cpp stuff
+    "clangd",
+    "clang-format",
+
+    -- rust stuff
+    "rust-analyzer",
+  },
+}
+
 M.treesitter = {
   ensure_installed = {
     "vim",
@@ -18,21 +33,6 @@ M.treesitter = {
     -- disable = {
     --   "python"
     -- },
-  },
-}
-
-M.mason = {
-  ensure_installed = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
-
-    -- c/cpp stuff
-    "clangd",
-    "clang-format",
-
-    -- rust stuff
-    "rust-analyzer",
   },
 }
 
@@ -121,4 +121,5 @@ require("nvterm").setup({
     auto_insert = true,
   },
 })
+
 return M
